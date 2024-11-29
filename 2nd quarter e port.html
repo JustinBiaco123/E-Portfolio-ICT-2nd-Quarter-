@@ -7,6 +7,11 @@
     </style>
 </head>
 <body>
+
+    <audio id="backgroundMusic" autoplay loop>
+    <source src="lobby-classic-game.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+    </audio>
     
     <header>
         <h1 class="main-title">WELCOME TO MY E-PORTFOLIO</h1>
@@ -174,8 +179,18 @@
             </audio>
         </div>
     </div>
+
+    <script>
+    // Try to play the audio as soon as the page is loaded
+    window.onload = function() {
+        var audio = document.getElementById('backgroundMusic');
+        audio.play().catch(function(error) {
+            console.log('Autoplay blocked, trying again after user interaction.');
+            // You can try playing the audio after some user interaction, e.g. a click
+            // audio.play(); 
+        });
+    };
+</script>
     
-    <audio autoplay loop>
-    <source src="lobby-classic-game.mp3">
 </body>
 </html>
